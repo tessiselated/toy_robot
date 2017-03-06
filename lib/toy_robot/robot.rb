@@ -4,7 +4,7 @@ module ToyRobot
 
     attr_reader :xposition, :yposition, :facing, :name
 
-
+    DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
 
     def initialize(xposition=0, yposition=0, facing="NORTH", name="Jane")
       @xposition = xposition
@@ -27,7 +27,8 @@ module ToyRobot
     end
 
     def turn_left
-
+      current_index = DIRECTIONS.index(facing)
+      @facing = DIRECTIONS.rotate(-1)[current_index]
     end
 
   end
