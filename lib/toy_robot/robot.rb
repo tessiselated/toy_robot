@@ -4,15 +4,17 @@ module ToyRobot
 
     attr_reader :xposition, :yposition, :direction, :name
 
-    def initialize(xposition=0, yposition=0, direction="NORTH", name="Jane")
+
+
+    def initialize(xposition=0, yposition=0, facing="NORTH", name="Jane")
       @xposition = xposition
       @yposition = yposition
-      @direction = direction
+      @facing = facing
       @name = name
     end
 
     def move
-      case direction
+      case facing
       when "NORTH"
         @xposition += 1
       when "EAST"
@@ -22,6 +24,10 @@ module ToyRobot
       when "WEST"
         @yposition -= 1
       end
+    end
+
+    def turn_left
+
     end
 
   end
