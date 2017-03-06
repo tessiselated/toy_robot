@@ -31,6 +31,11 @@ module ToyRobot
       @facing = DIRECTIONS.rotate(-1)[current_index]
     end
 
+    def turn_right
+      current_index = DIRECTIONS.index(facing)
+      @facing = DIRECTIONS.rotate(1)[current_index]
+    end
+
   end
 
 end

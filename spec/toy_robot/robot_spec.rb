@@ -20,6 +20,11 @@ describe ToyRobot::Robot do
       expect(subject.facing).to eq("WEST")
     end
 
+    it "turns right to face east" do
+      subject.turn_right
+      expect(subject.facing).to eq("EAST")
+    end
+
   end
 
   context "robot facing east" do
@@ -38,6 +43,11 @@ describe ToyRobot::Robot do
     it "turns left to face north" do
       subject.turn_left
       expect(subject.facing).to eq("NORTH")
+    end
+
+    it "turns right to face south" do
+      subject.turn_right
+      expect(subject.facing).to eq("SOUTH")
     end
 
   end
@@ -60,6 +70,11 @@ describe ToyRobot::Robot do
       expect(subject.facing).to eq("EAST")
     end
 
+    it "turns right to face west" do
+      subject.turn_right
+      expect(subject.facing).to eq("WEST")
+    end
+
   end
 
   context "robot facing west" do
@@ -78,6 +93,11 @@ describe ToyRobot::Robot do
     it "turns left to face south" do
       subject.turn_left
       expect(subject.facing).to eq("SOUTH")
+    end
+
+    it "turns right to face north" do
+      subject.turn_right
+      expect(subject.facing).to eq("NORTH")
     end
 
   end
