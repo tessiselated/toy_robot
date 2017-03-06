@@ -2,7 +2,7 @@ module ToyRobot
 
   class Robot
 
-    attr_reader :xposition, :yposition, :direction, :name
+    attr_reader :xposition, :yposition, :facing, :name
 
 
 
