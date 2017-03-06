@@ -1,1 +1,2 @@
-require_relative 'toy_robot/robot.rb'
+require_relative 'toy_robot/robot'
+require_relative 'toy_robot/tabletop.rb'
