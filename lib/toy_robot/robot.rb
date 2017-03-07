@@ -36,6 +36,14 @@ module ToyRobot
       @facing = DIRECTIONS.rotate(1)[current_index]
     end
 
+    def report
+      { xposition: xposition,
+        yposition: yposition,
+        facing: facing,
+        name: name
+      }
+    end
+
   end
 
 end

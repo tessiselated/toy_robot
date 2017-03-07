@@ -101,4 +101,23 @@ describe ToyRobot::Robot do
     end
 
   end
+
+  context "robot in the middle of the table" do
+    subject {ToyRobot::Robot.new(3, 3, "EAST")}
+
+    it "reports its position, direction and name" do
+      expect(subject.report).to eq({:xposition=>3, :yposition=>3, :facing=>"EAST", :name=>"Jane"})
+    end
+
+    it "reports its position, direction and name after moving" do
+      subject.move
+      expect(subject.report).to eq({:xposition=>3, :yposition=>4, :facing=>"EAST", :name=>"Jane"})
+    end
+
+    it "reports its position, direction and name after turning left" do
+      subject.turn_left
+      expect(subject.report).to eq({:xposition=>3, :yposition=>3, :facing=>"NORTH", :name=>"Jane"})
+    end
+
+  end
 end
