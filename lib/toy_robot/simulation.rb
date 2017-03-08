@@ -2,7 +2,7 @@ require 'pry'
 
 module ToyRobot
 
-  class Simulator
+  class Simulation
 
     attr_reader :robot
 
@@ -25,9 +25,10 @@ module ToyRobot
     def move
       if !robot_placed?
         return "A robot which is not on the table cannot move"
-      elsif robot.move.position
+      elsif !@tabletop.valid_position?(*robot.next_position)
+        return "I don't want to fall of the table!"
       else
-        return robot.move
+        robot.move
       end
     end
 
