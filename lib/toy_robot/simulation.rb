@@ -11,7 +11,7 @@ module ToyRobot
     end
 
     def place(xposition, yposition, facing, name="Jane")
-      if !@tabletop.valid_location?(xposition, yposition)
+      if !@tabletop.valid_position?(xposition, yposition)
         return "That's not on the table"
       else
         return @robot = Robot.new(xposition, yposition, facing, name)
@@ -25,7 +25,7 @@ module ToyRobot
     def move
       if !robot_placed?
         return "A robot which is not on the table cannot move"
-      elsif 
+      elsif robot.move.position
       else
         return robot.move
       end

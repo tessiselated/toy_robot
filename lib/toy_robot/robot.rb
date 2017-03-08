@@ -26,6 +26,19 @@ module ToyRobot
       end
     end
 
+    def next_position
+      case facing
+      when "NORTH"
+        [@xposition + 1, @yposition]
+      when "EAST"
+        [@xposition, @yposition + 1]
+      when "SOUTH"
+        [@xposition - 1, @yposition]
+      when "WEST"
+        [@xposition, @yposition -1]
+      end
+    end
+
     def turn_left
       current_index = DIRECTIONS.index(facing)
       @facing = DIRECTIONS.rotate(-1)[current_index]
