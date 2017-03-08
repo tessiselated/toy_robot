@@ -9,7 +9,7 @@ module ToyRobot
       @width = width
     end
 
-    def valid_location?(xposition, yposition)
+    def valid_position?(xposition, yposition)
       (0...@height).cover?(xposition) &&
       (0...@width).cover?(yposition)
     end
