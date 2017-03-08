@@ -32,6 +32,32 @@ module ToyRobot
       end
     end
 
+    def turn_left
+      if !robot_placed?
+        return "A robot which is not on the table cannot turn"
+      else
+        robot.turn_left
+      end
+    end
+
+    def turn_right
+      if !robot_placed?
+        return "A robot which is not on the table cannot turn"
+      else
+        robot.turn_left
+      end
+    end
+
+    def report
+      if !robot_placed?
+        return "I am not currently on the table"
+      else
+        details = robot.report
+        "My name is #{details[:name]} and I am at position #{details[:xposition]}, #{details[:yposition]} and I am facing #{details[:facing]}"
+      end
+
+    end
+
 
 
   end
