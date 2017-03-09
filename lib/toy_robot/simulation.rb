@@ -10,8 +10,9 @@ module ToyRobot
 
     def place(xposition, yposition, facing, name="Jane")
       if !@tabletop.valid_position?(xposition, yposition)
-        return "That's not on the table"
+        puts "That's not on the table"
       else
+        puts "I am on the table!"
         return @robot = Robot.new(xposition, yposition, facing, name)
       end
     end
@@ -22,38 +23,45 @@ module ToyRobot
 
     def move
       if !robot_placed?
-        return "A robot which is not on the table cannot move"
+        puts "A robot which is not on the table cannot move"
       elsif !@tabletop.valid_position?(*robot.next_position)
-        return "I don't want to fall of the table!"
+        puts "I don't want to fall off the table!"
       else
+        puts "Beep boop. Moving forward"
         robot.move
       end
     end
 
     def turn_left
       if !robot_placed?
-        return "A robot which is not on the table cannot turn"
+        puts "A robot which is not on the table cannot turn"
       else
+        puts "Turning left"
         robot.turn_left
       end
     end
 
     def turn_right
       if !robot_placed?
-        return "A robot which is not on the table cannot turn"
+        puts "A robot which is not on the table cannot turn"
       else
+        puts "Turning right"
         robot.turn_right
       end
     end
 
     def report
       if !robot_placed?
-        return "I am not currently on the table"
+        puts "I am not currently on the table"
       else
         details = robot.report
-        "My name is #{details[:name]} and I am at position #{details[:xposition]}, #{details[:yposition]} and I am facing #{details[:facing]}"
+        puts "My name is #{details[:name]} and I am at position #{details[:xposition]}, #{details[:yposition]} and I am facing #{details[:facing]}"
       end
 
+    end
+
+    def invalid(command)
+      puts "I'm sorry, I do not understand #{command}. I understand commands in the format 'PLACE X,Y,F' MOVE, LEFT, RIGHT and REPORT"
     end
 
 

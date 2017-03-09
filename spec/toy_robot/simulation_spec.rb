@@ -19,7 +19,8 @@ describe ToyRobot::Simulation do
     end
 
     it "does not place a robot in an invalid location" do
-      expect(subject.place(5,5,"EAST")).to eq("That's not on the table")
+      response = "That's not on the table\n"
+      expect{ subject.place(5,5,"EAST") }.to output(response).to_stdout
     end
 
 
@@ -53,13 +54,15 @@ describe ToyRobot::Simulation do
     it "doesn't allow the robot to fall off the table" do
       6.times { subject.move }
       expect(subject.robot.xposition).to eq(4)
-      expect(subject.move).to eq("I don't want to fall of the table!")
+      response = "I don't want to fall off the table!\n"
+      expect{ subject.move }.to output(response).to_stdout
     end
 
     it "reports on the robots location" do
       2.times { subject.move }
       subject.turn_right
-      expect(subject.report).to eq("My name is Jane and I am at position 2, 0 and I am facing EAST")
+      response = "My name is Jane and I am at position 2, 0 and I am facing EAST\n"
+      expect{ subject.report }.to output(response).to_stdout
     end
 
   end
