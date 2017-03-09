@@ -1,1 +1,68 @@
-# I think this is where I'd use mocks but I'm not 100% comfortable with using them
+require 'spec_helper'
+
+describe ToyRobot::Simulation do
+
+  context "a new instance of the simulation" do
+
+    before(:each) do
+      @tabletop = ToyRobot::Tabletop.new(5,5)
+    end
+
+    subject { ToyRobot::Simulation.new(@tabletop) }
+
+    it "initiates a new instance of the simulation" do
+      expect(subject.class).to eq(ToyRobot::Simulation)
+    end
+
+    it "it places a robot in response to a place command" do
+      expect(subject.place(2,3,"WEST").class).to eq(ToyRobot::Robot)
+    end
+
+    it "does not place a robot in an invalid location" do
+      expect(subject.place(5,5,"EAST")).to eq("That's not on the table")
+    end
+
+
+  end
+
+  context "a robot has been placed" do
+
+    before(:each) do
+      @tabletop = ToyRobot::Tabletop.new(5,5)
+      @simulation = ToyRobot::Simulation.new(@tabletop)
+      @simulation.place(0,0,"NORTH")
+    end
+
+    subject { @simulation }
+
+    it "changes position of the robot" do
+      subject.move
+      expect(subject.robot.xposition).to eq(1)
+    end
+
+    it "turns turns the robot left" do
+      subject.turn_left
+      expect(subject.robot.facing).to eq("WEST")
+    end
+
+    it "turns turns the robot right" do
+      subject.turn_right
+      expect(subject.robot.facing).to eq("EAST")
+    end
+
+    it "doesn't allow the robot to fall off the table" do
+      6.times { subject.move }
+      expect(subject.robot.xposition).to eq(4)
+      expect(subject.move).to eq("I don't want to fall of the table!")
+    end
+
+    it "reports on the robots location" do
+      2.times { subject.move }
+      subject.turn_right
+      expect(subject.report).to eq("My name is Jane and I am at position 2, 0 and I am facing EAST")
+    end
+
+  end
+
+
+end

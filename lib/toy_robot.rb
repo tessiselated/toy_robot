@@ -6,5 +6,4 @@ require_relative 'toy_robot/simulation'
 require 'pry'
 
 module ToyRobot
-binding.pry
 end

@@ -1,5 +1,3 @@
-require 'pry'
-
 module ToyRobot
 
   class Simulation
@@ -44,7 +42,7 @@ module ToyRobot
       if !robot_placed?
         return "A robot which is not on the table cannot turn"
       else
-        robot.turn_left
+        robot.turn_right
       end
     end
 
