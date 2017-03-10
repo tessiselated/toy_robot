@@ -8,12 +8,12 @@ module ToyRobot
       @tabletop = tabletop
     end
 
-    def place(xposition, yposition, facing, name="Jane")
+    def place(xposition, yposition, facing)
       if !@tabletop.valid_position?(xposition, yposition)
         puts "That's not on the table"
       else
         puts "I am on the table!"
-        return @robot = Robot.new(xposition, yposition, facing, name)
+        return @robot = Robot.new(xposition, yposition, facing)
       end
     end
 

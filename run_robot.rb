@@ -8,30 +8,31 @@ puts "Welcome to the robot simulator. Would you like to run the robot on a stand
 if @tabletop_options === "y"
   @tabletop = ToyRobot::Tabletop.new
 elsif @tabletop_options === "n"
-  puts "Please enter tabletop height"
-  @height = gets.chomp.to_i
-  puts "Please enter tabletop width"
-  @width = gets.chomp.to_i
+  loop do # Loops until an integer value for height is given
+    puts "Please enter tabletop height"
+     @height = Integer(gets) rescue nil
+     break if @height.is_a? Integer
+   end
+   loop do # Loops until an integer value for width is given
+     puts "Please enter tabletop width"
+     @width = Integer(gets) rescue nil
+     break if @width.is_a? Integer
+   end
   @tabletop = ToyRobot::Tabletop.new(@height, @width)
 else
-  abort #need to look into this
+  abort
 end
 
 @simulation = ToyRobot::Simulation.new(@tabletop)
 
 puts "Please enter a name for the robot."
 
-@name = gets.chomp
+$default_name = gets.chomp
 
 loop do
-  puts "Please enter a command for the robot. Type exit to leave the simulation"
-  break if @input === "exit"
+  puts "Please enter a command for the robot. Type exit to leave the simulation. The robot understand commands in the format 'PLACE X,Y,F' MOVE, LEFT, RIGHT and REPORT"
   @input = gets.chomp
+  break if @input === "exit"
   command, *args = ToyRobot::Command.process(@input)
   @simulation.send(command, *args)
 end
-
-
-
-
-binding.pry
