@@ -1,5 +1,5 @@
 require_relative 'lib/toy_robot.rb'
-require 'pry'
+
 
 puts "Welcome to the robot simulator. Would you like to run the robot on a standard 5 x 5 board? Type y for yes, n to enter your own parameters or any other key to exit the simulation"
 
