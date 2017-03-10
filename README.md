@@ -25,6 +25,14 @@ To run the robot, run `ruby run_robot.rb` from the command line and follow the p
 
 To run the robot `cd` into the root directory, run `ruby run_robot.rb` from the command line and follow the prompts.
 
+The robot will accept commands in the following forms:
+
+  -  PLACE X,Y,F (eg. PLACE 0,0,NORTH)
+  -  MOVE
+  -  LEFT
+  -  RIGHT
+  -  REPORT
+
 ## Tests
 
 To run the test suite `cd` into the root directory and run `rspec spec` from the command line.
