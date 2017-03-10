@@ -17,9 +17,9 @@ The test suite uses `RSpec 3.5.4`
 
 Clone this repository and `cd` to the root directory and run `bundle install`
 
-To run the test suite run `rspec spec` from the command line.
+To run the test suite run `rspec spec`.
 
-To run the robot, run `ruby run_robot.rb` from the command line and follow the prompts
+To run the robot, run `ruby run_robot.rb` and follow the prompts
 
 ## Usage Instructions
 
@@ -41,6 +41,6 @@ To run the test suite `cd` into the root directory and run `rspec spec` from the
 
 This was made for a coding test.
 
-I'm proud of the way that the classes were set out, and I think each class's purpose is clear and makes sense.
+I'm proud of the way that the classes were set out, and I think each class's purpose is clear and makes sense. I also like that it's possible to make a table of any size, though the default is still the 5x5 table grid.
 
 I'm still relatively new with using RSpec and Test Driven Development. I think some of the tests could be more intricate - but overall I'm happy with the test suite - and it did make the debugging process significantly easier when issues arose.
