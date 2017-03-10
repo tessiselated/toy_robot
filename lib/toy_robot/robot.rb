@@ -1,10 +1,12 @@
 module ToyRobot
 
+  DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
+
   class Robot
 
     attr_reader :xposition, :yposition, :facing, :name
 
-    DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
+
     $default_name = "Jane"
 
     def initialize(xposition=0, yposition=0, facing="NORTH")

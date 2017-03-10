@@ -23,6 +23,11 @@ describe ToyRobot::Simulation do
       expect{ subject.place(5,5,"EAST") }.to output(response).to_stdout
     end
 
+    it "does not place the robot when the facing argument is invalid" do
+      response = "3 is not a valid direction, please use NORTH, EAST, WEST or SOUTH\n"
+      expect{ subject.place(1,3,3) }.to output(response).to_stdout
+    end
+
 
   end
 

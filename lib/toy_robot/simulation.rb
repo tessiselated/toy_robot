@@ -11,6 +11,8 @@ module ToyRobot
     def place(xposition, yposition, facing)
       if !@tabletop.valid_position?(xposition, yposition)
         puts "That's not on the table"
+      elsif  !DIRECTIONS.include?(facing)
+        puts "#{facing} is not a valid direction, please use NORTH, EAST, WEST or SOUTH"
       else
         puts "I am on the table!"
         return @robot = Robot.new(xposition, yposition, facing)
